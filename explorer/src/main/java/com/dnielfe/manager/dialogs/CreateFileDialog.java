@@ -20,10 +20,13 @@ public final class CreateFileDialog extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         final Activity a = getActivity();
+        final String newfile = BrowserTabsAdapter.getCurrentBrowserFragment().mCurrentPath
+                + "/" + "newfile";
 
         // Set an EditText view to get user input
         final EditText inputf = new EditText(a);
-        inputf.setHint(R.string.enter_name);
+        inputf.setHint("Enter path&name");
+        inputf.setText(newfile);
 
         final AlertDialog.Builder b = new AlertDialog.Builder(a);
         b.setTitle(R.string.newfile);
@@ -32,8 +35,17 @@ public final class CreateFileDialog extends DialogFragment {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        String name = inputf.getText().toString();
-                        String path = BrowserTabsAdapter.getCurrentBrowserFragment().mCurrentPath;
+                        String temp = inputf.getText().toString();//
+                        String[] array={};
+                        array=temp.split("/");
+                        int len=array.length;
+                        String name=array[len-1];
+
+                        String path="";//BrowserTabsAdapter.getCurrentBrowserFragment().mCurrentPath;
+                        for(int i=0;i<len-1;i++){
+                            path+="/";///1/2/3/new
+                            path+=array[i];
+                        }
 
                         if (name.length() >= 1) {
                             boolean success = SimpleUtils.createFile(new File(path, name));
