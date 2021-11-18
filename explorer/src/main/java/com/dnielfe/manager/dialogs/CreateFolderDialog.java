@@ -20,10 +20,13 @@ public final class CreateFolderDialog extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         final Activity a = getActivity();
+        final String newfolder = BrowserTabsAdapter.getCurrentBrowserFragment().mCurrentPath
+                + "/" + "newfolder";
 
         // Set an EditText view to get user input
         final EditText inputf = new EditText(a);
-        inputf.setHint(R.string.enter_name);
+        inputf.setHint("Enter path&name");
+        inputf.setText(newfolder);
 
         final AlertDialog.Builder b = new AlertDialog.Builder(a);
         b.setTitle(R.string.createnewfolder);
@@ -33,8 +36,18 @@ public final class CreateFolderDialog extends DialogFragment {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        String name = inputf.getText().toString();
-                        String location = BrowserTabsAdapter.getCurrentBrowserFragment().mCurrentPath;
+                        String temp = inputf.getText().toString();//
+                        String[] array={};
+                        array=temp.split("/");
+                        int len=array.length;
+                        String name=array[len-1];
+
+                        String location="";//BrowserTabsAdapter.getCurrentBrowserFragment().mCurrentPath;
+                        for(int i=0;i<len-1;i++){
+                            location+="/";///1/2/3/new
+                            location+=array[i];
+                        }
+                        //String location = BrowserTabsAdapter.getCurrentBrowserFragment().mCurrentPath;
                         boolean success = false;
 
                         if (name.length() >= 1)
