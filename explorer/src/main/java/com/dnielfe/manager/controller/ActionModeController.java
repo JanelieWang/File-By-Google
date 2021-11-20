@@ -20,6 +20,7 @@ import com.dnielfe.manager.dialogs.FilePropertiesDialog;
 import com.dnielfe.manager.dialogs.GroupOwnerDialog;
 import com.dnielfe.manager.dialogs.RenameDialog;
 import com.dnielfe.manager.dialogs.ZipFilesDialog;
+import com.dnielfe.manager.dialogs.UnpackDialog;
 import com.dnielfe.manager.settings.Settings;
 import com.dnielfe.manager.utils.ClipBoard;
 import com.dnielfe.manager.utils.SimpleUtils;
@@ -81,6 +82,7 @@ public final class ActionModeController {
                     menu.removeItem(R.id.actionrename);
                     menu.removeItem(R.id.actiongroupowner);
                     menu.removeItem(R.id.actiondetails);
+                    menu.removeItem(R.id.actionunzip);
                 }
             }
             return true;
@@ -210,6 +212,19 @@ public final class ActionModeController {
                     final DialogFragment dialog = ZipFilesDialog.instantiate(files);
                     mode.finish();
                     dialog.show(mActivity.getFragmentManager(), BrowserActivity.TAG_DIALOG);
+                    return true;
+                case R.id.actionunzip:
+                    for (int i = 0; i < checkedItemSize; i++) {
+                        final int key = items.keyAt(i);
+                        if (items.get(key)) {
+                            final DialogFragment dialog5 = UnpackDialog
+                                    .instantiate(new File((String) mListView
+                                            .getItemAtPosition(key)));
+                            mode.finish();
+                            dialog5.show(mActivity.getFragmentManager(), BrowserActivity.TAG_DIALOG);
+                            break;
+                        }
+                    }
                     return true;
                 case R.id.actionrename:
                     for (int i = 0; i < checkedItemSize; i++) {

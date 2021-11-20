@@ -33,9 +33,13 @@
         app:showAsAction="ifRoom"
         android:title="@string/multizip" />
     <item
+        android:id="@+id/actionunzip"
+        android:title="@string/unzipping"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/actiongroupowner"
-        app:showAsAction="never"
-        android:title="@string/changegroupowner" />
+        android:title="@string/changegroupowner"
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/actiondetails"
         android:icon="?attr/action_info"
