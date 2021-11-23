@@ -118,19 +118,30 @@
             android:id="@+id/uread"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:checked="true"
+            android:clickable="true"
+            android:duplicateParentState="true"
+            android:focusable="true" />
 
         <CheckBox
             android:id="@+id/uwrite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:checked="true"
+            android:clickable="true"
+            android:duplicateParentState="true" />
 
         <CheckBox
             android:id="@+id/uexecute"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:checked="true"
+            android:clickable="true"
+            android:duplicateParentState="true"
+            android:focusable="true" />
     </TableRow>
 
     <TableRow
@@ -148,7 +159,11 @@
             android:id="@+id/gread"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:checked="true"
+            android:clickable="true"
+            android:duplicateParentState="true"
+            android:focusable="true" />
 
         <CheckBox
             android:id="@+id/gwrite"
