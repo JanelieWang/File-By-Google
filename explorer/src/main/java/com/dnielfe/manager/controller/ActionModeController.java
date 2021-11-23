@@ -67,16 +67,16 @@ public final class ActionModeController {
             mActivity.getMenuInflater().inflate(R.menu.actionmode, menu);
 
             if (mActivity instanceof SearchActivity) {
-                    menu.removeItem(R.id.actiongroupowner);
-                    menu.removeItem(R.id.actionrename);
-                    menu.removeItem(R.id.actionzip);
+                menu.removeItem(R.id.actiongroupowner);
+                menu.removeItem(R.id.actionrename);
+                menu.removeItem(R.id.actionzip);
 
                 if (mListView.getCheckedItemCount() > 1) {
                     menu.removeItem(R.id.actiondetails);
                 }
             } else {
                 if (!Settings.rootAccess())
-                    menu.removeItem(R.id.actiongroupowner);
+                    //menu.removeItem(R.id.actiongroupowner);
 
                 if (mListView.getCheckedItemCount() > 1) {
                     menu.removeItem(R.id.actionrename);
