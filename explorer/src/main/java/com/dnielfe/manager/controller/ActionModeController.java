@@ -82,7 +82,7 @@ public final class ActionModeController {
                     menu.removeItem(R.id.actionrename);
                     menu.removeItem(R.id.actiongroupowner);
                     menu.removeItem(R.id.actiondetails);
-                    //menu.removeItem(R.id.actionunzip);
+                    menu.removeItem(R.id.actionunzip);
                 }
             }
             return true;
