@@ -76,7 +76,7 @@ public final class ActionModeController {
                 }
             } else {
                 if (!Settings.rootAccess())
-                    //menu.removeItem(R.id.actiongroupowner);
+                    //menu.removeItem(R.id.actiongroupowner);//just for test the jenkins
 
                 if (mListView.getCheckedItemCount() > 1) {
                     menu.removeItem(R.id.actionrename);
